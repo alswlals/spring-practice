@@ -52,6 +52,7 @@ public class HelloController {
 		return "redirect:/hello" ;
 	}
 	
+	/* 이건 쓰면 안 됨 */
 	@RequestMapping("/hello7")
 	public void hell07(HttpServletRequest request, HttpServletResponse response, Writer out) throws IOException {
 		String name = request.getParameter("name");

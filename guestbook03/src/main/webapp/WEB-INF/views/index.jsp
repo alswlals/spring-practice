@@ -6,7 +6,9 @@
 <%@ page import="com.douzone.guestbook.repository.GuestbookRepository"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<% pageContext.setAttribute("newLine", "\n"); %>
+<%
+pageContext.setAttribute("newLine", "\n");
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -31,26 +33,24 @@
 		</table>
 	</form>
 	<br>
-	<ul>
-	<%-- 	<c:set var="count" value="${fn:length(list) }" /> --%>
-		<c:forEach items="${list }" var="vo" varStatus="status">
-			<li>
-				<table width=510 border=1>
-					<tr>
-						<td>[${count - status.index}]</td>
-						<td>${vo.name }</td>
-						<td>${vo.regDate }</td>
-						<td><a
-							href="${pageContext.request.contextPath }/delete/${vo.no}">삭제</a>
-						</td>
-					</tr>
-					<tr>
-						<td colspan=4>${fn:replace(vo.message, newline, "<br>") }</td>
-					</tr>
-				</table> <br>
-			</li>
-		</c:forEach>
-	</ul>
+	<c:set var="count" value="${fn:length(list) }" />
+	<c:forEach items="${list }" var="vo" varStatus="status">
+
+		<table width=510 border=1>
+			<tr>
+				<td>[${count - status.index}]</td>
+				<td>${vo.name }</td>
+				<td>${vo.regDate }</td>
+				<td><a
+					href="${pageContext.request.contextPath }/delete/${vo.no}">삭제</a></td>
+			</tr>
+			<tr>
+				<td colspan=4>${fn:replace(vo.message, newline, "<br>") }</td>
+			</tr>
+		</table>
+		<br>
+
+	</c:forEach>
 
 </body>
 </html>

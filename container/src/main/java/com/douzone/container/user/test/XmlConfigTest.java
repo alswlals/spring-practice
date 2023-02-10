@@ -15,7 +15,6 @@ public class XmlConfigTest {
 
 	private static void testBeanFactory01() {
 		BeanFactory bf = new XmlBeanFactory(new ClassPathResource("com/douzone/container/config/user/applicationContext.xml"));
-		
 		User user = bf.getBean(User.class);
 		System.out.println(user.getName());
 	}

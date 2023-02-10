@@ -15,7 +15,7 @@ public class AppConfigTest {
 	private static void testAppConfig() {
 		/* 자바 설정을 annotation으로 해주고 그 기반으로 자바코드 진행*/
 		ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
-		ac.getBean(User.class);
+		User user = ac.getBean(User.class);
 		System.out.println(user);
 	}
 

@@ -12,7 +12,58 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
         http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 	
-	<bean class="com.douzone.container.user.User" />
+	<!-- 기본 생성자로 빈 생성하기 -->
+	<bean id="user" name="usr" class="com.douzone.container.user.User" />
+	
+	<!-- Parameter 1개인 생성자로 빈 생성하기 -->
+	<bean id="user2" name="usr2" class="com.douzone.container.user.User" >
+		<constructor-arg value="마이콜"/>
+	</bean>
 
+	<!-- Parameter 2개인 생성자로 빈 생성하기 1 -->
+	<bean id="user3" class="com.douzone.container.user.User" >
+		<constructor-arg value="3"/>
+		<constructor-arg value="또치"/>
+	</bean>
+	
+	<!-- Parameter 2개인 생성자로 빈 생성하기 2 -->
+	<!-- 순서를 뒤집는 경우 오류가 발생하기 때문에 index를 사용해 순서를 정해준다  -->
+	<bean id="user4" class="com.douzone.container.user.User" >
+		<constructor-arg index="1" value="도우너"/>
+		<constructor-arg index="0" value="4"/>
+	</bean>
+	
+	<!-- setter 사용하기 -->
+	<bean id="user5" class="com.douzone.container.user.User" >
+		<property name="no" value="5"/>
+		<property name="name" value="고길동"/>
+	</bean>
+	
+	<!-- DI 하기 -->
+	<bean id="friend" class="com.douzone.container.user.Friend">
+		<constructor-arg value="영희"/>
+	</bean>
+	<bean id="user6" class="com.douzone.container.user.User" >
+		<property name="no" value="6"/>
+		<property name="name" value="철수"/>
+		<property name="friend" ref="friend"/>
+	</bean>
+	
+	<!-- setter를 사용한 List 세팅하기 -->
+	<bean id="user7" class="com.douzone.container.user.User" >
+		<property name="no" value="7"/>
+		<property name="name" value="아이언맨"/>
+		<property name="friends">
+			<list>
+				<value>스파이더맨</value>
+				<value>토르</value>
+				<value>캡틴 아메리카</value>
+				<value>헐크</value>
+				
+			</list>
+		</property>
+		
+	</bean>
+	
 </beans>
  

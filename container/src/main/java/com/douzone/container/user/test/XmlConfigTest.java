@@ -11,10 +11,19 @@ public class XmlConfigTest {
 	public static void main(String[] args) {
 		/* XML Auto Configuration (Annotation Scanning) */
 		testBeanFactory01();
+		
+		/* XML Bean Configuration (Explicit Configuration) */
+		testBeanFactory02();
 	}
 
 	private static void testBeanFactory01() {
-		BeanFactory bf = new XmlBeanFactory(new ClassPathResource("com/douzone/container/config/user/applicationContext.xml"));
+		BeanFactory bf = new XmlBeanFactory(new ClassPathResource("com/douzone/container/config/user/applicationContext01.xml"));
+		User user = bf.getBean(User.class);
+		System.out.println(user.getName());
+	}
+	
+	private static void testBeanFactory02() {
+		BeanFactory bf = new XmlBeanFactory(new ClassPathResource("com/douzone/container/config/user/applicationContext02.xml"));
 		User user = bf.getBean(User.class);
 		System.out.println(user.getName());
 	}

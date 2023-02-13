@@ -15,11 +15,15 @@ com.douzone.container.config.videosystem
           |—DVDPlayerConfig.java ***
 
 
+
+
 [src/main/resource]
 com.douzone.container.config.user
           |—applicationContext01.xml
           |—applicationContext02.xml
 com.douzone.container.config.soundsystem
+          |—applicationContext.xml
+com.douzone.container.config.videosystem
           |—applicationContext.xml
 
 
@@ -29,4 +33,5 @@ com.douzone.container.soundsystem
           |—CDPlayerJavaConfigTest.java
 
 com.douzone.container.config.videosystem
+com.douzone.container.videosystem
           |—DVDPlayerJavaConfigTest.java

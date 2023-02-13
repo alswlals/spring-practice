@@ -9,6 +9,10 @@ public class CDPlayer {
 	@Autowired
 	private CompactDisc cd;
 	
+	CDPlayer(CompactDisc cd){
+		this.cd = cd;
+	}
+	
 	public String play() {
 		return cd.play();
 	}
